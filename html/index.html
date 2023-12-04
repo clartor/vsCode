@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="../styles.css">
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script>
+ 
+        var url = 'https://uselessfacts.jsph.pl/api/v2/facts/random?language=en';
+
+        fetch(url)
+        .then(function(response) {
+            return response.json();}) // Hämtar API
+        .then(function(data) {
+        var factItem = data.text; // filtrerar ut enbart fun facts
+            document.getElementById('factOut').innerText = factItem; //lägger till html taggen nedan
+        return factItem;
+        })
+        .catch(function(err) {
+        console.log('Fetch Error :-S', err);
+        });
+
+        function myFunction() {
+            window.location.reload(); // hämta ny fact vid knapp tryck
+
+//   var x = document.getElementById("factOut"); // Alternativ kod för hide/show toggle.
+//   if (x.style.display === "none") {
+//     x.style.display = "block";
+//   } else {
+//     x.style.display = "none";
+//   }
+}
+        
+
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Clara T
+        </h1>
+    </header>
+    <section class="container">
+        <nav class="navbar">
+            <a href="index.html">Hem</a>
+            <a href="projects.html">Portfölj</a>
+            <a href="photoalbum.html">Bilder</a>
+            <a href="contact.html">Kontakt</a>
+        </nav>
+        <div class="info">
+            
+            <p>
+                Jag är 28 år och bor i Högdalen med min hund Axel. Jag gillar att laga mat, baka och hitta på projekt,
+                nästan alltid något som byggs om eller fixas i min lägenhet. Jag gillar också att göra ingenting, mästare på att prokrastinera och bara 
+                göra tillräckligt. 
+                Jag går igång på färg, former, design, estetik, fritt flöde, animationer samt
+                teknik, struktur, logik och maskineri.
+            </p>
+            <section>
+                <h3>Alltid kul att lära sig nått nytt. Random daily fact här ➝
+                <button id="factKnow" onclick="myFunction()">Klicka här!</button></h3> 
+                <div id="factOut">
+                </div>
+                <!-- <h3>Evigt gungandes mellan;
+                </h3>
+                <ul>
+                    <li>Praktiskt möter orimligt</li>
+                    <li>Art Nouveau möter Bauhaus</li>
+                    <li>Gen Z eller millenial</li>
+                    <li>Sladd- och läppstiftsammlare</li>
+                    <li>Kaniner och jakthundar</li>
+                    <li>Självisolerande extrovert</li>
+                    <li>Miljonärkarriär eller självförsörjande stuga i skogen</li>
+                    <li>Lat och handlingskraftig</li>
+                    <li>En stillasittande rejv-tjej</li>
+                    <li>Vintage lampor med smartbelysning </li>
+                    <li>Axel ska finnas för alltid, men jag vill inte ha kvar honom bara för min skull.</li>
+                </ul> -->
+            </section>
+        </div>
+    </section>
+
+    <footer>
+        <a href="contact.html">
+            Vill du veta lite mer? Ta gärna kontakt!
+        </a>
+        
+    </footer>
+</body>
+
+</html>
