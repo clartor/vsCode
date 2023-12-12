@@ -8,7 +8,7 @@
 
 <body>
     <script>
-        // Create a "close" button and append it to each list item
+        // skapa krysset och lägg till på "uppdraget" som skickas in
         var myNodelist = document.getElementsByTagName("LI");
         var i;
         for (i = 0; i < myNodelist.length; i++) {
@@ -19,7 +19,7 @@
             myNodelist[i].appendChild(span);
         }
 
-        // Click on a close button to hide the current list item
+        // kryssa för att radera uppdraget från listan
         var close = document.getElementsByClassName("close");
         var i;
         for (i = 0; i < close.length; i++) {
@@ -29,21 +29,13 @@
             }
         }
 
-        // Add a "checked" symbol when clicking on a list item
-        var list = document.querySelector('ul');
-        list.addEventListener('click', function (ev) {
-            if (ev.target.tagName === 'LI') {
-                ev.target.classList.toggle('checked');
-            }
-        }, false);
-
-        // Create a new list item when clicking on the "Add" button
+        // skapa list item när klick på skicka knappen 
         function newElement() {
             var li = document.createElement("li");
             var inputValue = document.getElementById("myInput").value;
             var t = document.createTextNode(inputValue);
             li.appendChild(t);
-            if (inputValue === '') {
+            if (inputValue === '') { // om tomt värde alert att text måste finnas i input
                 alert("You must write something!");
             } else {
                 document.getElementById("myUL").appendChild(li);
@@ -80,17 +72,16 @@
 
 
     <div class="AddAtodoinList">
-        <h2>lägg till här</h2>
+        <h2>Lägg till en syssla</h2>
         <div id="myDIV">
             <!-- <h2>To Do List</h2> -->
             <input type="text" id="myInput" placeholder="Uppdrag...">
-            <span onclick="newElement()" class="addBtn">Lägg till</span>
+            <span onclick="newElement()" class="addBtn">skicka</span>
         </div>
 
         <div>
-            <h1>Idag</h1>
-            <ul id="myUL">
-                <!-- <li class="checked">Städa badkar</li> -->
+            <ul id="myUL" style="list-style-type:none !important;"> 
+                <!-- inline style här för jag fick det inte att fungera i css filen-->
             </ul>
         </div>
     </div>    

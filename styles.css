@@ -67,6 +67,10 @@ footer{
     flex-direction: column;
 
 }
+.myUL{
+    width: 80vw;
+}
+
 .info {
     margin: 3vw;
 
